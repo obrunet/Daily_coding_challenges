@@ -44,3 +44,8 @@ diff = 0
 for i, j in list(zip(dna_seq_1, dna_seq_2)):
     if i != j: diff += 1
 print(f'the Hamming Distance is {diff}')
+
+
+# 4th solution
+diff = sum( x != y for (x, y) in zip(dna_seq_1, dna_seq_2))
+print(f'the Hamming Distance is {diff}')
