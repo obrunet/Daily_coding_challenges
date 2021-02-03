@@ -10,7 +10,6 @@ When counting words you can assume the following rules:
     - The count is unordered; the tests will ignore how words and counts are ordered
     - Other than the apostrophe in a contraction all forms of punctuation are ignored
     - The words can be separated by any form of whitespace (ie "\t", "\n", " ")
-
 For example, for the phrase "That's the password: 'PASSWORD 123'!, cried the Special Agent.\nSo I fled." the count would be:
     that's: 1
     the: 2
@@ -29,7 +28,7 @@ import re
 string = "That's the password: 'PASSWORD 123'!, cried the Special Agent.\nSo I fled."
 
 # remove punctuation, lowercase & split
-string = re.sub(r'[^\w\s]','',string).lower().split()
+string = re.sub(r'[^\w\s]', '', string).lower().split()
 print(string)
 
 freq = {}
