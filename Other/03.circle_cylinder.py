@@ -2,12 +2,9 @@
 Create a class Circle():
 - parameters for the constructor: radius and center
 - methods : area, perimeter
-Then creata an other class Cylinder() derivated from Circle
+Then create an other class Cylinder() derivated from Circle
 - the constructor contains the height parameter
 - method : volume
-cyl = Cylindre(5, 7)
-print(cyl.surface()) 78.54
-print(cyl.volume()) 549.78
 """
 
 
@@ -47,9 +44,9 @@ class Cylinder(Circle):
     """Class of cylinder objects derived from Circle, parameter at init: height
     method: volume of the cylinder"""
 
-    def __init__(self, height=2):
+    def __init__(self, radius, center, height=2):
         """Initializes the parameter of a cylinder: its height"""
-        Circle.__init__(self, radius=3, center=(5, 5))
+        Circle.__init__(self, radius, center)
         self.height = height
         self.cylinder_volume = self.calculate_cylinder_volume()
         self.cylinder_area = self.calculate_cylinder_area()
