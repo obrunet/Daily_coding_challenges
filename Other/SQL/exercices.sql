@@ -62,7 +62,75 @@ SELECT nom FROM client ORDER by nom -- b same thing
 
 SELECT AVG(montant) as prix_moyen FROM operation 
 SELECT MIN(montant) as min_prix FROM operation 
+SELECT count(montant) FROM operation 
+SELECT SUM(montant) FROM operation 
 
+SELECT COUNT(idcompte) FROM operation 
+SELECT COUNT(DISTINCT(idcompte)) FROM operation 
+
+example regex
+https://www.dba-expert.fr/index.php/le-developpement/sql/20-la-fonction-regexp-like
+
+SELECT * FROM operation GROUP by idcompte
+
+SELECT SUM(montant) FROM operation GROUP by idcompte
+SELECT SUM(montant) AS somme_montant FROM operation GROUP by idcompte
+
+having filtre avec max, avg, min...
+
+SELECT *
+FROM operation
+WHERE montant >= 20
+GROUP by idcompte
+HAVING COUNT(idop) < 3
+
+
+SELECT montant, idcompte,
+CASE
+    WHEN montant < 0 THEN 'valeur négative'
+    ELSE 'valeur positive'
+END as 'resultat'
+FROM operation;
+
+
+
+--------------------------------------
+SELECT count (*)
+FROM(
+    SELECT nom, prenom, idcompte, type
+    FROM client
+    INNER JOIN compte ON idclient=idproprietaire
+    WHERE type == 'Livret A'
+    )
+
+
+
+a tester:
+SELECT compte.idcomte, idproprietaire, type, montant, informations
+FROM compte AS c
+INNER JOIN client ON idclient = c.idproprietaire
+INNER JOIN operation ON operation.idcompte = c.idcompte 
+WHERE montant > 0 AND montant < 100
+
+Inner joins (keep rows with keys that exist in the left and right datasets)
+
+Outer joins (keep rows with keys in either the left or right datasets)
+
+Left outer joins (keep rows with keys in the left dataset)
+
+Right outer joins (keep rows with keys in the right dataset)
+
+Left semi joins (keep the rows in the left, and only the left, dataset where the key
+appears in the right dataset)
+
+Left anti joins (keep the rows in the left, and only the left, dataset where they do not
+appear in the right dataset)
+
+Natural joins (perform a join by implicitly matching the columns between the two
+datasets with the same names)
+
+Cross (or Cartesian) joins (match every row in the left dataset with every row in the
+right dataset)
 
 
 --------------------------------------
