@@ -1,0 +1,26 @@
+DROP TABLE IF EXISTS operation;
+DROP TABLE IF EXISTS compte;
+DROP TABLE IF EXISTS client;
+
+CREATE TABLE IF NOT EXISTS client (
+idclient int(5) NOT NULL,
+nom varchar(128) NOT NULL,
+prenom varchar(128) NOT NULL,
+ville varchar(128) NOT NULL,
+PRIMARY KEY (idclient)
+);
+
+CREATE TABLE IF NOT EXISTS compte (
+idcompte int(5) NOT NULL,
+idproprietaire int(5) NOT NULL,
+type varchar(128) NOT NULL,
+PRIMARY KEY (idcompte)
+) ;
+
+CREATE TABLE IF NOT EXISTS operation (
+idop int(5) NOT NULL,
+idcompte int(5) NOT NULL,
+montant decimal(10,2) NOT NULL,
+informations text NOT NULL,
+PRIMARY KEY (idop)
+) ;

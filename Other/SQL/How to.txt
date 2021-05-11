@@ -1,0 +1,6 @@
+Go to
+https://sqliteonline.com/
+then sqlite
+
+run bd-banque-simple-corrected.txt to create all tables
+import each table client, compte, operation then select * from ... to check

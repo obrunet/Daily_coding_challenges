@@ -5,6 +5,7 @@ Create a class Circle():
 Then create an other class Cylinder() derivated from Circle
 - the constructor contains the height parameter
 - method : volume
+Finally overwrite the cylinder class with Cone
 """
 
 
@@ -21,7 +22,6 @@ class Circle(object):
         self.circle_center = center
         self.circle_area = self.calculate_area()
         self.circle_perimeter = self.calculate_perimeter()
-        self.sphere_volume = self.calculate_sphere_volume()
 
     def calculate_area(self):
         """Computes the area of the circle"""
@@ -31,13 +31,9 @@ class Circle(object):
         """Computes the perimeter of the circle"""
         return Circle.PI * 2 * self.radius
 
-    def calculate_sphere_volume(self):
-        """Computes the volume of the sphère"""
-        return 4 / 3 * Circle.PI * self.radius ** 3
-
     def all_info(self):
         """Returns a string with all infos"""
-        return f"Area: {self.circle_area:.2f} cm² | Perimeter: {self.circle_perimeter:.2f} cm | Sphere Volume {self.sphere_volume:.2f} cm3"
+        return f"Area: {self.circle_area:.2f} cm² | Perimeter: {self.circle_perimeter:.2f} cm"
 
 
 class Cylinder(Circle):
@@ -48,20 +44,32 @@ class Cylinder(Circle):
         """Initializes the parameter of a cylinder: its height"""
         Circle.__init__(self, radius, center)
         self.height = height
-        self.cylinder_volume = self.calculate_cylinder_volume()
-        self.cylinder_area = self.calculate_cylinder_area()
+        self.volume = self.calculate_volume()
+        self.area = self.calculate_area()
 
-    def calculate_cylinder_volume(self):
+    def calculate_volume(self):
         """Computes the volume of the cylinder"""
         return self.circle_area * self.height
 
-    def calculate_cylinder_area(self):
+    def calculate_area(self):
         """Computes the area of the cylinder"""
         return self.circle_perimeter * self.height + 2 * self.circle_area
 
     def all_info(self):
         """Returns a string with all infos"""
-        return f"Area: {self.cylinder_area:.2f} cm² | Cylinder Volume {self.cylinder_volume:.2f} cm3"
+        return f"Area: {self.area:.2f} cm² | Cylinder Volume {self.volume:.2f} cm3"
+
+
+class Cone(Cylinder):
+    """Class of Cone objects derived from overwritten Circle, parameter at init: height
+    method: volume of the cone"""
+
+    def __init__(self, radius, center, height=3):
+        """Initializes the parameter of a cone: its height"""
+
+    def calculate_cylinder_volume(self):
+        """Computes the volume of the cylinder"""
+        return self.circle_area * self.height
 
 
 def main():
