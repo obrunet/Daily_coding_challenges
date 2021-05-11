@@ -51,6 +51,20 @@ SELECT * FROM T_CLIENT WHERE cli_prenom is NOT NULL
 
 --------------------------------------
 
+SELECT montant as alias_montant FROM operation
+SELECT montant as alias_montant FROM operation ORDER BY alias_montant ASC
+SELECT montant as alias_montant FROM operation ORDER BY alias_montant DESC
+
+
+SELECT nom FROM client ORDER by nom ASC
+SELECT nom FROM client ORDER by nom -- b same thing
+
+
+SELECT AVG(montant) as prix_moyen FROM operation 
+SELECT MIN(montant) as min_prix FROM operation 
+
+
+
 --------------------------------------
 
 --------------------------------------
