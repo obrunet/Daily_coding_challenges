@@ -25,20 +25,29 @@ INSERT INTO T_CLIENT VALUES (3, 'test', 'test') -- doesn't work because same id
 INSERT INTO T_CLIENT VALUES (4, 'test', 'test')
 INSERT INTO T_CLIENT VALUES (5, NULL, 'test') --doesn't work: null constrained
 
+--------------------------------------
 
-
-INSERT INTO client (idclient,nom,prenom,ville) VALUES (1,"Ewing","Grant","San Gregorio nelle Alpi");
+SELECT DISTINCT cli_nom FROM T_CLIENT
 
 --------------------------------------
 
+SELECT montant FROM operation WHERE montant <= 300
+SELECT * FROM operation WHERE montant >= 300 AND idcompte < 200
+SELECT * FROM operation WHERE idop != 5
+SELECT * FROM operation WHERE idop <> 5
+SELECT * FROM operation WHERE informations NOT IN ('Guichet')
+SELECT montant * idcompte / 100 * idop FROM operation
+SELECT montant * idcompte / (100 * idop) FROM operation -- same thing
+
+SELECT * FROM operation WHERE idop == 1 or idcompte == 269
+SELECT * FROM operation WHERE idop = 1 or idcompte = 269 -- same thing
 
 
 --------------------------------------
 
-
-
-
---------------------------------------
+SELECT * FROM T_CLIENT
+SELECT * FROM T_CLIENT WHERE cli_prenom is NULL
+SELECT * FROM T_CLIENT WHERE cli_prenom is NOT NULL
 
 --------------------------------------
 
